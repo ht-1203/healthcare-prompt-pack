@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Prompt Pack — Clinic & Healthcare</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FAF7F2;
+    --sage: #4A6741;
+    --sage-light: #6B8F62;
+    --sage-pale: #E8F0E6;
+    --charcoal: #2C2C2C;
+    --warm-gray: #7A7570;
+    --gold: #C9A84C;
+    --white: #FFFFFF;
+    --border: #D8D0C4;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    line-height: 1.6;
+  }
+
+  /* COVER PAGE */
+  .cover {
+    min-height: 100vh;
+    background: var(--sage);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -80px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+
+  .cover-badge {
+    display: inline-block;
+    border: 1px solid rgba(255,255,255,0.4);
+    color: rgba(255,255,255,0.8);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    border-radius: 100px;
+    margin-bottom: 40px;
+  }
+
+  .cover h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 7vw, 80px);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .cover h1 span {
+    color: var(--gold);
+  }
+
+  .cover-sub {
+    font-size: 18px;
+    color: rgba(255,255,255,0.7);
+    max-width: 480px;
+    margin: 0 auto 48px;
+    font-weight: 300;
+  }
+
+  .cover-stats {
+    display: flex;
+    gap: 48px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  /* INTRO */
+  .intro {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 80px 40px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .intro-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--sage);
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  .intro h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--charcoal);
+  }
+
+  .intro p {
+    font-size: 16px;
+    color: var(--warm-gray);
+    max-width: 600px;
+    margin-bottom: 16px;
+  }
+
+  .how-to {
+    background: var(--sage-pale);
+    border-left: 3px solid var(--sage);
+    padding: 24px 28px;
+    border-radius: 0 12px 12px 0;
+    margin-top: 32px;
+  }
+
+  .how-to h3 {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--sage);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .how-to ol {
+    padding-left: 20px;
+    color: var(--charcoal);
+    font-size: 15px;
+  }
+
+  .how-to li { margin-bottom: 6px; }
+
+  /* SECTION */
+  .section {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 60px 40px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+
+  .section-icon {
+    width: 48px; height: 48px;
+    background: var(--sage);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--charcoal);
+  }
+
+  .section-desc {
+    font-size: 14px;
+    color: var(--warm-gray);
+    margin-top: 2px;
+  }
+
+  /* PROMPT CARD */
+  .prompt-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .prompt-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px 28px;
+    position: relative;
+    transition: border-color 0.2s;
+  }
+
+  .prompt-card:hover {
+    border-color: var(--sage-light);
+  }
+
+  .prompt-num {
+    position: absolute;
+    top: 20px; right: 24px;
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--sage-pale);
+    line-height: 1;
+  }
+
+  .prompt-tag {
+    display: inline-block;
+    background: var(--sage-pale);
+    color: var(--sage);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 100px;
+    margin-bottom: 12px;
+  }
+
+  .prompt-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--charcoal);
+    margin-bottom: 10px;
+  }
+
+  .prompt-text {
+    background: var(--cream);
+    border: 1px dashed var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    font-size: 14px;
+    color: var(--charcoal);
+    line-height: 1.7;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .prompt-tip {
+    font-size: 12px;
+    color: var(--warm-gray);
+    margin-top: 10px;
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .prompt-tip::before {
+    content: '💡';
+    flex-shrink: 0;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: var(--charcoal);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 48px 40px;
+    font-size: 13px;
+  }
+
+  .footer strong {
+    color: var(--white);
+    font-size: 18px;
+    display: block;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 8px;
+  }
+
+  @media print {
+    .cover { page-break-after: always; }
+    .section { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-badge">Digital Product · Version 1.0</div>
+  <h1>AI Prompt Pack<br><span>Clinic & Healthcare</span></h1>
+  <p class="cover-sub">30 prompts พร้อมใช้ สำหรับทีม Demand Planning, Purchasing, เภสัชกร และ Admin คลินิก</p>
+  <div class="cover-stats">
+    <div class="stat">
+      <div class="stat-num">30</div>
+      <div class="stat-label">Prompts</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">5</div>
+      <div class="stat-label">หมวดหมู่</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">∞</div>
+      <div class="stat-label">ใช้ได้ทันที</div>
+    </div>
+  </div>
+</div>
+
+<!-- INTRO -->
+<div class="intro">
+  <div class="intro-label">เริ่มต้น</div>
+  <h2>ใช้งานยังไง?</h2>
+  <p>Prompt Pack นี้ออกแบบมาสำหรับคนที่ทำงานในสาย Clinic และ Healthcare โดยเฉพาะ ไม่ต้องมีความรู้ด้าน AI เพียงแค่ copy prompt ไปวางใน Claude หรือ ChatGPT แล้วแก้ตามสถานการณ์จริงของคุณ</p>
+  <p>แต่ละ prompt ผ่านการทดสอบในบริบทงานจริง เช่น การจัดการ Inventory, การสื่อสารกับ Supplier, การเขียนรายงาน และการจัดการข้อมูลยา</p>
+  <div class="how-to">
+    <h3>วิธีใช้งาน</h3>
+    <ol>
+      <li>เลือก prompt ที่ตรงกับงานที่ต้องการ</li>
+      <li>Copy ข้อความใน กรอบประหยัด ไปวางใน Claude / ChatGPT</li>
+      <li>แก้ส่วนที่เป็น [วงเล็บ] ให้ตรงกับข้อมูลจริงของคุณ</li>
+      <li>กด Enter และรับผลลัพธ์ทันที</li>
+    </ol>
+  </div>
+</div>
+
+<!-- SECTION 1: INVENTORY & PO -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon">📦</div>
+    <div>
+      <div class="section-title">Inventory & Purchase Order</div>
+      <div class="section-desc">6 prompts สำหรับการจัดการสต็อกและการสั่งซื้อ</div>
+    </div>
+  </div>
+  <div class="prompt-grid">
+
+    <div class="prompt-card">
+      <div class="prompt-num">01</div>
+      <div class="prompt-tag">MinMax Planning</div>
+      <div class="prompt-title">คำนวณ Reorder Point และ Safety Stock</div>
+      <div class="prompt-text">ช่วยคำนวณ Reorder Point และ Safety Stock ให้หน่อย โดยข้อมูลดังนี้:<br>
+- ยา/สินค้า: [ชื่อสินค้า]<br>
+- ยอดใช้เฉลี่ยต่อวัน: [จำนวน] ชิ้น<br>
+- Lead Time จาก Supplier: [จำนวน] วัน<br>
+- ต้องการ Safety Stock สำรอง: [จำนวน] วัน<br>
+กรุณาแสดงสูตรและผลลัพธ์ชัดเจน</div>
+      <div class="prompt-tip">เพิ่ม CV% ของสินค้าถ้ามีข้อมูล จะได้ Safety Stock ที่แม่นยำขึ้น</div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-num">02</div>
+      <div class="prompt-tag">Stock Analysis</div>
+      <div class="prompt-title">วิเคราะห์สินค้าใกล้หมดและแนะนำการสั่ง</div>
+      <div class="prompt-text">ฉันมีข้อมูล Stock ดังนี้ กรุณาช่วยระบุว่าสินค้าตัวไหนควรสั่งด่วน และแนะนำ Order Quantity ที่เหมาะสม:<br>
+[วางตาราง Excel หรือรายการสินค้าที่นี่]<br><br>
+เกณฑ์: สินค้าที่เหลือน้อยกว่า [X] วัน ถือว่าเร่งด่วน</div>
+      <div class="prompt-tip">วางข้อมูลจาก Excel โดยตรงได้เลย ไม่ต้องจัดรูปแบบ</div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-num">03</div>
+      <div class="prompt-tag">PO Draft</div>
+      <div class="prompt-title">สร้างรายการ Purchase Order</div>
+      <div class="prompt-text">ช่วยสร้างรายการ Purchase Order ให้ในรูปแบบตาราง โดยมีสินค้าดังนี้:<br>
+[รายชื่อสินค้าและจำนวนที่ต้องการสั่ง]<br><br>
+ให้มีคอลัมน์: ลำดับ, รหัสสินค้า, ชื่อสินค้า, จำนวน, หน่วย, หมายเหตุ</div>
+      <div class="prompt-tip">ใช้กับ Claude Code เพื่อ Export เป็น Excel ได้เลย</div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-num">04</div>
+      <div class="prompt-tag">Demand Forecast</div>
+      <div class="prompt-title">พยากรณ์ความต้องการรายเดือน</div>
+      <div class="prompt-text">จากข้อมูลยอดใช้ย้อนหลัง 6 เดือนด้านล่าง ช่วยพยากรณ์ความต้องการ 3 เดือนข้างหน้า และระบุ Trend ที่สังเกตเห็น:<br>
+[ข้อมูลยอดใช้รายเดือน]<br><br>
+สินค้า: [ชื่อสินค้า] | คลัง: [ชื่อคลัง]</div>
+      <div class="prompt-tip">ถ้ามี Seasonal Pattern บอกเพิ่มด้วย เช่น "ยอดสูงช่วงหน้าหนาว"</div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-num">05</div>
+      <div class="prompt-tag">Slow Moving</div>
+      <div class="prompt-title">วิเคราะห์สินค้าเคลื่อนไหวช้า</div>
+      <div class="prompt-text">กรุณาวิเคราะห์รายการสินค้าด้านล่างและระบุว่าตัวไหนเป็น Slow Moving หรือ Non-Moving พร้อมแนะนำแนวทางจัดการ:<br>
+[รายการสินค้าพร้อมวันที่เคลื่อนไหวล่าสุดและจำนวน Stock]<br><br>
+เกณฑ์ Slow Moving: ไม่มีการเคลื่อนไหวเกิน [X] วัน</div>
+      <div class="prompt-tip">ใช้คู่กับ Prompt 02 เพื่อวางแผน PO ได้ครบ</div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-num">06</div>
+      <div class="prompt-tag">Gap Analysis</div>
+      <div class="prompt-title">เปรียบเทียบ Stock จริง vs MinMax Target</div>
+      <div class="prompt-text">ช่วยเปรียบเทียบ Stock จริงกับค่า MinMax ที่ตั้งไว้ และสรุปเป็นตารางว่าสินค้าใดอยู่ใน Zone ไหน (Over / Normal / Under / Critical):<br>
+[ข้อมูล Stock จริง และค่า Min/Max ของแต่ละสินค้า]</div>
+      <div class="prompt-tip">ขอให้ AI ใส่ Traffic Light สีด้วยได้ (🔴🟡🟢) เพื่อรายงานผู้บริหาร</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SECTION 2: DRUG CLASSIFICATION -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon">💊</div>
+    <div>
+      <div class="section-title">Drug & Product Classification</div>
+      <div class="section-desc">6 prompts สำหรับการจัดหมวดหมู่ยาและผลิตภัณฑ์</div>
+    </div>
+  </div>
+  <div class="prompt-grid">
+
+    <div class="prompt-card">
+      <div class="prompt-num">07</div>
+      <div class="prompt-tag">Rx / OTC</div>
+      <div class="prompt-title">จำแนกยา Rx หรือ OTC</div>
+      <div class="prompt-text">กรุณาช่วยจำแนกยาต่อไปนี้ว่าเป็น Rx (ยาตามใบสั่งแพทย์) หรือ OTC (ยาสามัญประจำบ้าน) พร้อมเหตุผลสั้นๆ:<br>
+[รายชื่อยา]<br><br>
+อ้างอิงตามมาตรฐานของประเทศไทย</div>
+      <div class="prompt-tip">เพิ่มขอให้ระบุกลุ่มยา (Antibiotic, Analgesic, etc.) ด้วยได้</div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-num">08</div>
+      <div class="prompt-tag">Filler / Botox</div>
+      <div class="prompt-title">จัดหมวดหมู่ผลิตภัณฑ์ Aesthetic</div>
+      <div class="prompt-text">ช่วยจัดกลุ่มผลิตภัณฑ์ต่อไปนี้ว่าเป็น Filler, Botox, Skinbooster, Supplement หรืออื่นๆ พร้อมระบุ Active Ingredient หลัก:<br>
+[รายชื่อผลิตภัณฑ์]</div>
+      <div class="prompt-tip">เหมาะสำหรับคลินิกความงามที่มีสินค้าหลากหลายประเภท</div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-num">09</div>
+      <div class="prompt-tag">Drug Interaction</div>
+      <div class="prompt-title">ตรวจสอบปฏิกิริยาระหว่างยาเบื้องต้น</div>
+      <div class="prompt-text">กรุณาตรวจสอบเบื้องต้นว่ายาต่อไปนี้มีปฏิกิริยาที่ต้องระวังร่วมกันไหม และแนะนำว่าควรปรึกษาเภสัชกรหรือแพทย์ในกรณีใด:<br>
+ยาที่ใช้ร่วมกัน: [รายชื่อยา]<br>
+ผู้ป่วย: [อายุ / โรคประจำตัวที่เกี่ยวข้อง]</div>
+      <div class="prompt-tip">ใช้เป็นข้อมูลเบื้องต้นเท่านั้น ต้องยืนยันกับเภสัชกรเสมอ</div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-num">10</div>
+      <div class="prompt-tag">Masterlist</div>
+      <div class="prompt-title">สร้าง Drug Masterlist จากรายการยา</div>
+      <div class="prompt-text">จากรายการยาต่อไปนี้ ช่วยสร้างตาราง Masterlist ที่มีคอลัมน์: ชื่อยา, Generic Name, ประเภท (Rx/OTC), กลุ่มยา, ขนาด/ความแรง, หน่วยนับ:<br>
+[รายชื่อยา]</div>
+      <div class="prompt-tip">Export เป็น CSV แล้ว Import เข้าระบบ ERP ได้เลย</div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-num">11</div>
+      <div class="prompt-tag">Storage</div>
+      <div class="prompt-title">ระบุเงื่อนไขการจัดเก็บยา</div>
+      <div class="prompt-text">ช่วยระบุเงื่อนไขการจัดเก็บที่เหมาะสมของยาต่อไปนี้ ได้แก่ อุณหภูมิ, แสง, ความชื้น และอายุการใช้งานโดยประมาณ:<br>
+[รายชื่อยา]</div>
+      <div class="prompt-tip">เหมาะสำหรับการวาง Layout คลังยาและตั้งค่า Alert</div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-num">12</div>
+      <div class="prompt-tag">Near Expiry</div>
+      <div class="prompt-title">วางแผนจัดการยาใกล้หมดอายุ</div>
+      <div class="prompt-text">ยาต่อไปนี้ใกล้หมดอายุภายใน [X] เดือน ช่วยแนะนำแนวทางจัดการ เช่น เร่งใช้, ส่งคืน Supplier, หรือ Transfer ไปสาขาอื่น:<br>
+[รายการยาพร้อมจำนวนและวันหมดอายุ]</div>
+      <div class="prompt-tip">ระบุ Policy ของบริษัทด้วย เช่น "ส่งคืน Supplier ได้ถ้าเหลือ >3 เดือน"</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SECTION 3: SUPPLIER COMMUNICATION -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon">📧</div>
+    <div>
+      <div class="section-title">Supplier Communication</div>
+      <div class="section-desc">6 prompts สำหรับการสื่อสารกับ Supplier อย่างมืออาชีพ</div>
+    </div>
+  </div>
+  <div class="prompt-grid">
+
+    <div class="prompt-card">
+      <div class="prompt-num">13</div>
+      <div class="prompt-tag">Email</div>
+      <div class="prompt-title">เขียนอีเมลสอบถาม Lead Time</div>
+      <div class="prompt-text">ช่วยเขียนอีเมลภาษาอังกฤษ (Professional Tone) สอบถาม Supplier เรื่อง Lead Time ของสินค้าต่อไปนี้ และขอให้ยืนยันภายใน [X] วัน:<br>
+Supplier: [ชื่อบริษัท]<br>
+สินค้า: [รายชื่อสินค้า]<br>
+บริษัทเรา: [ชื่อบริษัท]</div>
+      <div class="prompt-tip">เพิ่ม "ขอทั้งภาษาไทยและอังกฤษ" ถ้า Supplier ไทย</div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-num">14</div>
+      <div class="prompt-tag">Negotiation</div>
+      <div class="prompt-title">ต่อรองราคาและเงื่อนไขการส่ง</div>
+      <div class="prompt-text">ช่วยเขียนอีเมลต่อรองกับ Supplier โดย:<br>
+- ขอส่วนลดเพิ่ม [X]% จากราคาปัจจุบัน<br>
+- ขอเปลี่ยน Payment Term จาก [เดิม] เป็น [ใหม่]<br>
+- อ้างอิงว่าเราเป็น Long-term Customer มา [X] ปี<br>
+Tone: Professional แต่ Friendly</div>
+      <div class="prompt-tip">ให้ AI สร้าง 2 version: Soft และ Firm เพื่อเลือกตามสถานการณ์</div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-num">15</div>
+      <div class="prompt-tag">Complaint</div>
+      <div class="prompt-title">แจ้งปัญหาสินค้าและขอแก้ไข</div>
+      <div class="prompt-text">ช่วยเขียนอีเมลแจ้ง Supplier เรื่องปัญหาที่เกิดขึ้น และขอให้แก้ไขภายใน [X] วัน:<br>
+ปัญหา: [อธิบายปัญหา เช่น สินค้าผิด Lot, ส่งไม่ครบ, ของเสียหาย]<br>
+PO Reference: [เลขที่ PO]<br>
+จำนวนที่ได้รับผลกระทบ: [จำนวน]</div>
+      <div class="prompt-tip">ขอให้ AI ระบุ Deadline และ Expected Resolution ด้วย</div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-num">16</div>
+      <div class="prompt-tag">SLA Review</div>
+      <div class="prompt-title">สรุปประสิทธิภาพ Supplier รายไตรมาส</div>
+      <div class="prompt-text">จากข้อมูลด้านล่าง ช่วยสรุป Supplier Performance รายไตรมาส และระบุจุดที่ต้องปรับปรุง:<br>
+Supplier: [ชื่อ]<br>
+- อัตราส่งตรงเวลา: [X]%<br>
+- อัตราสินค้าที่ถูกต้อง: [X]%<br>
+- จำนวน Complaint: [X] ครั้ง<br>
+- Lead Time เฉลี่ย: [X] วัน</div>
+      <div class="prompt-tip">ใช้ในการประชุม Supplier Review ประจำไตรมาส</div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-num">17</div>
+      <div class="prompt-tag">Emergency Order</div>
+      <div class="prompt-title">สั่งซื้อฉุกเฉิน</div>
+      <div class="prompt-text">ช่วยเขียนอีเมลขอสั่งซื้อฉุกเฉิน (Urgent Order) สำหรับสินค้าที่หมดสต็อกกะทันหัน โดยขอให้ Supplier จัดส่งภายใน [X] วัน:<br>
+สินค้า: [ชื่อ] จำนวน [X] หน่วย<br>
+เหตุผลเร่งด่วน: [อธิบายสั้นๆ]</div>
+      <div class="prompt-tip">ระบุว่ายินดีรับค่าส่งพิเศษหรือไม่ เพื่อเพิ่มโอกาสได้รับการตอบรับ</div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-num">18</div>
+      <div class="prompt-tag">Contract</div>
+      <div class="prompt-title">สรุปประเด็นสำคัญในสัญญา Supplier</div>
+      <div class="prompt-text">กรุณาอ่านสัญญา Supplier ที่แนบมาและสรุปประเด็นสำคัญดังนี้: เงื่อนไขการชำระเงิน, นโยบายการคืนสินค้า, Penalty กรณีส่งไม่ตรงเวลา, และข้อที่ควรระวัง:<br>
+[วางเนื้อหาสัญญา หรือ Upload ไฟล์]</div>
+      <div class="prompt-tip">ใช้เป็นข้อมูลประกอบการตัดสินใจ ไม่ใช่คำแนะนำทางกฎหมาย</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SECTION 4: REPORT & PRESENTATION -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon">📊</div>
+    <div>
+      <div class="section-title">Report & Executive Summary</div>
+      <div class="section-desc">6 prompts สำหรับการเขียนรายงานและนำเสนอผู้บริหาร</div>
+    </div>
+  </div>
+  <div class="prompt-grid">
+
+    <div class="prompt-card">
+      <div class="prompt-num">19</div>
+      <div class="prompt-tag">Executive Summary</div>
+      <div class="prompt-title">สรุปรายงาน Inventory สำหรับผู้บริหาร</div>
+      <div class="prompt-text">ช่วยสรุปข้อมูล Inventory ประจำ[สัปดาห์/เดือน]นี้ในรูปแบบ Executive Summary ไม่เกิน 1 หน้า A4 โดยเน้น: สถานะโดยรวม, สินค้าที่น่ากังวล, และการดำเนินการที่แนะนำ:<br>
+[วางข้อมูล Inventory]</div>
+      <div class="prompt-tip">ขอให้ใช้ Bullet Points และ Traffic Light System เพื่ออ่านง่าย</div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-num">20</div>
+      <div class="prompt-tag">Meeting Minutes</div>
+      <div class="prompt-title">สรุป Meeting Notes</div>
+      <div class="prompt-text">จาก Notes การประชุมด้านล่าง ช่วยสรุปเป็น Meeting Minutes อย่างเป็นทางการ โดยระบุ: วันที่, ผู้เข้าร่วม, ประเด็นที่หารือ, มติ/ข้อตกลง, และ Action Items พร้อม Deadline:<br>
+[Notes การประชุม]</div>
+      <div class="prompt-tip">บันทึกเสียงด้วย App แล้ว Transcribe ก่อน แล้วค่อยให้ AI สรุป</div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-num">21</div>
+      <div class="prompt-tag">KPI Dashboard</div>
+      <div class="prompt-title">วิเคราะห์ KPI ประจำเดือน</div>
+      <div class="prompt-text">จาก KPI ด้านล่าง ช่วยวิเคราะห์ว่าตัวไหน On Track / At Risk / Off Track และแนะนำ Action ที่ควรทำภายใน 30 วันข้างหน้า:<br>
+[รายการ KPI และค่าจริง vs เป้าหมาย]<br>
+แผนก: [ชื่อแผนก] | เดือน: [เดือน/ปี]</div>
+      <div class="prompt-tip">ขอ Output เป็นตารางที่ Copy ไปใส่ PowerPoint ได้เลย</div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-num">22</div>
+      <div class="prompt-tag">Slide Content</div>
+      <div class="prompt-title">เขียนเนื้อหา Slide Presentation</div>
+      <div class="prompt-text">ช่วยเขียนเนื้อหาสำหรับ Presentation [X] slides เรื่อง [หัวข้อ] สำหรับนำเสนอต่อ[ผู้บริหาร/ทีม] โดยแต่ละ slide ให้มี: หัวข้อ, Bullet Points 3-4 ข้อ, และ Key Message 1 ประโยค</div>
+      <div class="prompt-tip">บอก Audience และ Objective ให้ชัด จะได้ Tone ที่เหมาะสม</div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-num">23</div>
+      <div class="prompt-tag">Data Interpretation</div>
+      <div class="prompt-title">แปลความหมายข้อมูลตัวเลข</div>
+      <div class="prompt-text">จากข้อมูลตัวเลขด้านล่าง ช่วยแปลความหมายและบอกว่า Trend ที่เกิดขึ้นหมายความว่าอะไร และควรระวังอะไร:<br>
+[ข้อมูลตัวเลข เช่น ยอดขาย, Stock Level, Cost]<br>
+บริบท: [อธิบายว่าข้อมูลนี้มาจากไหนและใช้ทำอะไร]</div>
+      <div class="prompt-tip">ดีมากสำหรับคนที่มีข้อมูลแต่ไม่รู้จะ Present ยังไง</div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-num">24</div>
+      <div class="prompt-tag">Cost Analysis</div>
+      <div class="prompt-title">วิเคราะห์ต้นทุนและหาจุดลดได้</div>
+      <div class="prompt-text">จากข้อมูลค่าใช้จ่ายด้านล่าง ช่วยวิเคราะห์และระบุว่าส่วนไหนมีโอกาสลดต้นทุนได้ โดยไม่กระทบคุณภาพ:<br>
+[ข้อมูลค่าใช้จ่าย]<br>
+Budget ปัจจุบัน: [จำนวน] | เป้าหมายลดได้: [X]%</div>
+      <div class="prompt-tip">ขอให้ Rank โอกาสลดต้นทุนจาก Impact สูงสุดก่อน</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SECTION 5: SOP & WORKFLOW -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon">📋</div>
+    <div>
+      <div class="section-title">SOP & Workflow Design</div>
+      <div class="section-desc">6 prompts สำหรับสร้างขั้นตอนการทำงานและ SOP</div>
+    </div>
+  </div>
+  <div class="prompt-grid">
+
+    <div class="prompt-card">
+      <div class="prompt-num">25</div>
+      <div class="prompt-tag">SOP Writing</div>
+      <div class="prompt-title">เขียน SOP การรับสินค้าเข้าคลัง</div>
+      <div class="prompt-text">ช่วยเขียน SOP (Standard Operating Procedure) สำหรับขั้นตอนการรับสินค้าเข้าคลัง โดยครอบคลุม: การตรวจสอบเอกสาร, การนับจำนวน, การตรวจสภาพ, การบันทึกในระบบ และการจัดเก็บ<br>
+บริบท: คลังยา/เวชภัณฑ์ | ระบบที่ใช้: [ชื่อระบบ]</div>
+      <div class="prompt-tip">ขอให้ Format เป็น Numbered Steps พร้อม Responsible Person</div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-num">26</div>
+      <div class="prompt-tag">Checklist</div>
+      <div class="prompt-title">สร้าง Checklist ตรวจสอบรายวัน/รายสัปดาห์</div>
+      <div class="prompt-text">ช่วยสร้าง Checklist สำหรับ[งานที่ต้องการ] ที่ครอบคลุมทุกขั้นตอนสำคัญ โดยแบ่งเป็น: ก่อนเริ่มงาน, ระหว่างทำงาน, และสิ้นสุดงาน<br>
+งาน: [อธิบายงาน]<br>
+ผู้รับผิดชอบ: [ตำแหน่ง]</div>
+      <div class="prompt-tip">Print ออกมาเป็น Physical Checklist หรือใส่ใน Notion ได้เลย</div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-num">27</div>
+      <div class="prompt-tag">Training Material</div>
+      <div class="prompt-title">สร้างเนื้อหา Training สำหรับพนักงานใหม่</div>
+      <div class="prompt-text">ช่วยเขียนเนื้อหา Training สำหรับพนักงานใหม่เรื่อง [หัวข้อ] ให้เข้าใจง่าย ใช้เวลาอ่านไม่เกิน 15 นาที โดยมีส่วน: ทำไมสำคัญ, ขั้นตอนหลัก, สิ่งที่ต้องระวัง, และ Q&A ที่พบบ่อย</div>
+      <div class="prompt-tip">ขอให้เขียนราวกับอธิบายให้คนที่ไม่รู้อะไรเลยเข้าใจได้</div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-num">28</div>
+      <div class="prompt-tag">Process Improvement</div>
+      <div class="prompt-title">วิเคราะห์และปรับปรุง Workflow</div>
+      <div class="prompt-text">ขั้นตอนการทำงานปัจจุบันของเราเป็นแบบนี้ ช่วยวิเคราะห์ว่ามี Bottleneck ที่ไหน และแนะนำวิธีปรับปรุงให้มีประสิทธิภาพขึ้น:<br>
+[อธิบาย Workflow ปัจจุบัน]<br>
+ปัญหาที่พบบ่อย: [อธิบาย]</div>
+      <div class="prompt-tip">ขอให้ระบุ "Quick Win" ที่ทำได้ภายใน 1 สัปดาห์ด้วย</div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-num">29</div>
+      <div class="prompt-tag">Risk Assessment</div>
+      <div class="prompt-title">ประเมินความเสี่ยงในการดำเนินงาน</div>
+      <div class="prompt-text">ช่วยประเมินความเสี่ยงที่อาจเกิดขึ้นในกระบวนการต่อไปนี้ และแนะนำมาตรการป้องกัน:<br>
+กระบวนการ: [อธิบาย]<br>
+ให้ Format เป็นตาราง: ความเสี่ยง | โอกาสเกิด | ผลกระทบ | มาตรการป้องกัน</div>
+      <div class="prompt-tip">ใช้ในการเตรียม Contingency Plan หรือนำเสนอ Management</div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-num">30</div>
+      <div class="prompt-tag">Auto Reply</div>
+      <div class="prompt-title">เขียนตอบ LINE/Email ที่รับมาเป็นประจำ</div>
+      <div class="prompt-text">ช่วยเขียนชุด Template ตอบกลับสำหรับ[สถานการณ์ที่พบบ่อย] ให้ Tone เป็นมืออาชีพแต่ Friendly สำหรับใช้ใน LINE Official หรือ Email:<br>
+สถานการณ์: [เช่น ถามสต็อก, ถามราคา, แจ้งล่าช้า, ขอบคุณ]<br>
+ภาษา: [ไทย / อังกฤษ / ทั้งคู่]</div>
+      <div class="prompt-tip">สร้างไว้ 5-10 templates แล้ว Copy-Paste ประหยัดเวลาได้มากมาก</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <strong>AI Prompt Pack — Clinic & Healthcare</strong>
+  30 Prompts · Version 1.0 · 2026<br><br>
+  สงวนสิทธิ์ · ห้ามแจกจ่ายหรือขายต่อโดยไม่ได้รับอนุญาต<br>
+  สำหรับคำถามหรือ Custom Prompt เพิ่มเติม ติดต่อผู้จัดทำโดยตรง
+</div>
+
+</body>
+</html>
